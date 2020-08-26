@@ -1,0 +1,14 @@
+plugins {
+    id 'java'
+}
+
+group 'uj.jwzp'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.VERSION_11
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'uj.jwzp.helloworld.Main'
+    }
+}

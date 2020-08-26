@@ -1,0 +1,11 @@
+d/dx(cos(tmp.f())) = tmp.fx() (-sin(tmp.f()))
+d/dy(cos(tmp.f())) = tmp.fy() (-sin(tmp.f()))
+d^2/dx^2(cos(tmp.f())) = tmp.fx()^2 (-cos(tmp.f())) - tmp.fxx() sin(tmp.f())
+d/dx((dcos(tmp.f()))/(dy)) = tmp.fy() tmp.fx() (-cos(tmp.f())) - tmp.fxy() sin(tmp.f())
+d^2/dy^2(cos(tmp.f())) = tmp.fy()^2 (-cos(tmp.f())) - tmp.fyy() sin(tmp.f())
+
+d/dx(e^tmp.f()) = e^tmp.f() tmp.fx()
+d/dy(e^tmp.f()) = e^tmp.f() tmp.fy()
+d^2/dx^2(e^tmp.f()) = e^tmp.f() (tmp.fx()^2 + tmp.fxx())
+d/dx((d e^tmp.f())/(dy)) = e^tmp.f() (tmp.fy() tmp.fx() + tmp.fxy())
+d^2/dy^2(e^tmp.f()) = e^tmp.f() (tmp.fy()^2 + tmp.fyy())

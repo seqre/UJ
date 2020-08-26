@@ -1,0 +1,5 @@
+residual = 0 0 
+rozwiazanie = 1 -0 
+rezydualny = 0 0 
+blad = 0 limit = 1.0000000000000001e-15
+Test zaliczony
