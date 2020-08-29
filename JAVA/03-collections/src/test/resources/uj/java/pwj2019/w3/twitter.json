@@ -1,0 +1,46 @@
+{
+  "tweet": {
+    "created_at": "Tue Oct 22 19:18:00 +0000 2019",
+    "id": 372994604561387500,
+    "id_str": "877994604561387500",
+    "text": "Java lessons at UJ are the best!",
+    "truncated": false,
+    "source": "<a href=\"http://uj.edu.pl\" rel=\"nofollow\">UJ</a>",
+    "entities": {
+      "hashtags": [
+          {
+            "text": "Java",
+            "indices": [12,35]
+          },
+          {
+            "text":  "UJ"
+          }
+      ],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": [
+        {
+          "url": "https://uj.edu.pl",
+          "expanded_url": "https://uj.edu.pl",
+          "display_url": "uj.edu.pl",
+          "indices": [
+            79,
+            102
+          ]
+        }
+      ]
+    },
+    "user": {
+      "id": 1726829649,
+      "id_str": "1726829649",
+      "name": "Arek Sokołowski",
+      "screen_name": "Arek Sokołowski",
+      "location": "Kraków, Polska",
+      "protected": false,
+      "followers_count": 2145,
+      "friends_count": 18,
+      "listed_count": 328,
+      "favourites_count": 57
+    }
+  }
+}

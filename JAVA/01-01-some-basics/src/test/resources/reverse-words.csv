@@ -1,0 +1,6 @@
+input,expected
+ala,ala
+a b c,c b a
+Ala ma kota,kota ma Ala
+Siedzą piją lulki palą tańce hulanki swawole. Ledwie karczmy nie rozwalą,rozwalą nie karczmy Ledwie swawole. hulanki tańce palą lulki piją Siedzą
+Ala ma kota a kot ma Alę albo i nie ma,ma nie i albo Alę ma kot a kota ma Ala

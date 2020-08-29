@@ -1,0 +1,7 @@
+Curiosity killed the cat.
+Curiosity killed the mouse.
+Curiosity saved the cat.
+Curiosity killed the cat and the mouse.
+The cat was killed by curiosity.
+The mouse was killed by cat.
+The mouse was killed by curiosity.

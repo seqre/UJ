@@ -3,8 +3,8 @@
 Repos consisting various stuff done during my studies at The Jagiellonian University
 
 ### Courses
-  - Effective and Modern C++ Programming
-  - Java: industry applications
-  - Numerical Methods
-  - Probability and Statisstics
-  - Programming in Java
+  - (EMCPP) Effective and Modern C++ Programming
+  - (JwZP) Java: industry applications
+  - (MN) Numerical Methods
+  - (RPS) Probability and Statisstics
+  - (JAVA) Programming in Java
