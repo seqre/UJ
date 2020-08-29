@@ -1,3 +1,0 @@
-rootProject.name = '09-comparator-generator'
-include 'processor'
-
