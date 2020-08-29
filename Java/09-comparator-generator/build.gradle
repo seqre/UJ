@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group 'uj.java.pwj2019'
+version '1.0'
+
+sourceCompatibility = JavaVersion.VERSION_11
+
+subprojects {
+    version = '1.0'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'uj.pwj2019.w9.Librarian'
+        )
+    }
+}
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'processor/build/libs'
+    }
+}
+
+dependencies {
+    annotationProcessor name: 'processor-1.0'
+    implementation name: 'processor-1.0'
+}

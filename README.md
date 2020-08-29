@@ -6,4 +6,5 @@ Repos consisting various stuff done during my studies at The Jagiellonian Univer
   - Effective and Modern C++ Programming
   - Java: industry applications
   - Numerical Methods
-  - Probability adn Statisstics
+  - Probability and Statisstics
+  - Programming in Java
