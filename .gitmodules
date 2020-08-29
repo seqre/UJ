@@ -1,0 +1,6 @@
+[submodule "JAVA/battleships"]
+	path = JAVA/battleships
+	url = git@github.com:seqre/battleships.git
+[submodule "JwZP/veterinaryclinic"]
+	path = JwZP/veterinaryclinic
+	url = git@github.com:seqre/veterinaryclinic.git
