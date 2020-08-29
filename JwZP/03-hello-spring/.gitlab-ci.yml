@@ -1,0 +1,60 @@
+stages:
+  - build
+  - test
+  - deploy
+  - validate
+
+gradle-build:
+  image: gradle:5.1.0-jdk11
+  stage: build
+  before_script:
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+  script:
+    - gradle clean build -x test
+  artifacts:
+    paths:
+      - build/libs/*.jar
+  cache:
+    key: gradle-cache
+    paths:
+      - .gradle/caches
+
+test:
+  stage: test
+  image: gradle:5.1.0-jdk11
+  before_script:
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+  script:
+    - gradle test
+
+heroku-deploy:
+  image: docker:stable
+  stage: deploy
+  variables:
+    CONTAINER_IMAGE: registry.gitlab.com/$CI_PROJECT_PATH
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_DRIVER: overlay2
+  services:
+    - docker:dind
+  before_script:
+    - docker login --username=$HEROKU_USER --password=$HEROKU_API_KEY registry.heroku.com
+    - apk add --update curl && rm -rf /var/cache/apk/*
+  script:
+    - docker build --build-arg JAR_FILE=`ls build/libs/*.jar | head -1` --tag registry.heroku.com/$HEROKU_APP_NAME/web .
+    - docker push registry.heroku.com/$HEROKU_APP_NAME/web
+    - ./release-docker-in-heroku.sh $HEROKU_APP_NAME $HEROKU_API_KEY
+
+heroku-validate:
+  image: python:alpine
+  stage: validate
+  before_script:
+    - pip install urllib3
+  script:
+    - python src/test/acceptance/acc01.py $HEROKU_APP_NAME
+    - python src/test/acceptance/acc02.py $HEROKU_APP_NAME
+    - python src/test/acceptance/acc03.py $HEROKU_APP_NAME
+    - python src/test/acceptance/acc04.py $HEROKU_APP_NAME
+    - python src/test/acceptance/acc05.py $HEROKU_APP_NAME
+    - python src/test/acceptance/acc06.py $HEROKU_APP_NAME
+    - python src/test/acceptance/acc07.py $HEROKU_APP_NAME
+    - python src/test/acceptance/acc08.py $HEROKU_APP_NAME

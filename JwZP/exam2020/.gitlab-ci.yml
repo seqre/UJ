@@ -1,0 +1,60 @@
+stages:
+  - build
+  - test
+
+gradle-build:
+  image: gradle:6.5.0-jdk11
+  stage: build
+  before_script:
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+  script:
+    - gradle clean build -x test
+  artifacts:
+    paths:
+      - build/libs/*.jar
+  cache:
+    key: gradle-cache
+    paths:
+      - .gradle/caches
+
+test-initial:
+  stage: test
+  image: gradle:6.5.0-jdk11
+  before_script:
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+  script:
+    gradle test --tests *Exam2020Tests3.checkGreetingMessage
+
+test-3:
+  stage: test
+  image: gradle:6.5.0-jdk11
+  before_script:
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+  script:
+    gradle test --tests *Exam2020Tests3.checkBooksFlow
+
+test-3-5:
+  stage: test
+  image: gradle:6.5.0-jdk11
+  before_script:
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+  script:
+    - gradle test --tests *Exam2020Tests3_5.checkAuthorsFlow
+
+test-4:
+  stage: test
+  image: gradle:6.5.0-jdk11
+  before_script:
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+  script:
+    - gradle test --tests *Exam2020Tests4.findBooks
+
+test-4-5:
+  stage: test
+  image: gradle:6.5.0-jdk11
+  before_script:
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+  script:
+    - gradle test --tests *Exam2020Tests4_5.checkBeforePersistence
+    - gradle test --tests *Exam2020Tests4_5.checkAfterPersistence
+

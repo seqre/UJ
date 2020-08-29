@@ -1,0 +1,56 @@
+group 'uj.jwzp.gradleplay'
+version '1.0'
+
+apply plugin: 'java'
+
+sourceCompatibility = JavaVersion.VERSION_11
+
+if (!hasProperty('buildProfile')) ext.buildProfile = 'default'
+
+apply from: "profile-${buildProfile}.gradle"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
+}
+
+processResources {
+    outputs.upToDateWhen { false }
+    expand(db: project.db)
+}
+
+task fat_jar_test(type: Exec) {
+    doFirst {
+        println 'test01-fat-jar'
+    }
+    commandLine 'src/test/acceptance/test01-fat-jar.sh'
+}
+
+task profiles_test(type: Exec) {
+    doFirst {
+        println 'test02-profiles'
+    }
+    commandLine 'src/test/acceptance/test02-profiles.sh'
+}
+
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'uj.jwzp.gradleplay.Main'
+    }
+
+    archiveBaseName = "${project.name}-${buildProfile}"
+    archiveAppendix = 'all'
+
+    dependsOn configurations.runtimeClasspath
+    from {
+        configurations.runtimeClasspath.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+    with jar
+}
+

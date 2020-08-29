@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Han Solo",
+    "height": 0,
+    "mass": 0,
+    "hair_color": null,
+    "skin_color": null,
+    "eye_color": null,
+    "birth_year": null,
+    "gender": null,
+    "homeworld": "http://fake.url/api/planets/1",
+    "planet": {
+      "name": "Korelia",
+      "diameter": 0,
+      "climate": null,
+      "terrain": null,
+      "population": 0
+    }
+  },
+  {
+    "name": "Leia",
+    "height": 0,
+    "mass": 0,
+    "hair_color": null,
+    "skin_color": null,
+    "eye_color": null,
+    "birth_year": null,
+    "gender": null,
+    "homeworld": "http://fake.url/api/planets/1",
+    "planet": null
+  }
+]

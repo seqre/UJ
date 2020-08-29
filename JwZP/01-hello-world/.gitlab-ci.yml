@@ -1,0 +1,27 @@
+image: gradle:6.2.1-jdk11
+
+stages:
+  - build
+  - test
+
+gradle-build:
+  stage: build
+  before_script:
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+  script:
+    - gradle clean build -x test
+  artifacts:
+    paths:
+      - build/libs/*.jar
+  cache:
+    key: gradle-cache
+    paths:
+      - .gradle/caches
+
+acceptance:
+  stage: test
+  image: openjdk:11-jre-slim
+  script:
+    - src/test/acceptance/test01-hello-world.sh
+    - src/test/acceptance/test02-echo-string.sh
+    - src/test/acceptance/test03-echo-single-string.sh

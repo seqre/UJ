@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Veterinary Clinic</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <link href="../static/style.css" rel="stylesheet" th:href="@{/style.css}" type="text/css">
+</head>
+<body>
+
+<h1>Welcome to Veterinary Clinic website</h1>
+
+<!-- Table thanks to https://www.tablesgenerator.com/html_tables -->
+
+<div class="tg-wrap">
+    <table class="tg">
+        <thead>
+        <tr>
+            <th class="tg-rz9m">Path</th>
+            <th class="tg-rz9m">Description</th>
+            <th class="tg-rz9m">GET</th>
+            <th class="tg-rz9m">POST</th>
+            <th class="tg-rz9m">PATCH</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="tg-buh4">/clients</td>
+            <td class="tg-dzk6">show / add clients</td>
+            <td class="tg-dzk6">DONE</td>
+            <td class="tg-dzk6">DONE</td>
+            <td class="tg-dzk6">X</td>
+        </tr>
+        <tr>
+            <td class="tg-0lax"><span
+                    style="font-weight:normal;font-style:normal;text-decoration:none">/clients/{id}</span></td>
+            <td class="tg-baqh">show client</td>
+            <td class="tg-baqh">DONE</td>
+            <td class="tg-baqh">X</td>
+            <td class="tg-baqh">X</td>
+        </tr>
+        <tr>
+            <td class="tg-buh4"><span style="font-weight:normal;font-style:normal;text-decoration:none">/clients/{id}/pets</span>
+            </td>
+            <td class="tg-dzk6">show client pets</td>
+            <td class="tg-dzk6">DONE</td>
+            <td class="tg-dzk6">X</td>
+            <td class="tg-dzk6">X</td>
+        </tr>
+        <tr>
+            <td class="tg-0lax">/pets</td>
+            <td class="tg-baqh">show / add pets</td>
+            <td class="tg-baqh">DONE</td>
+            <td class="tg-baqh">DONE</td>
+            <td class="tg-baqh">X</td>
+        </tr>
+        <tr>
+            <td class="tg-buh4"><span
+                    style="font-weight:normal;font-style:normal;text-decoration:none">/pets/{id}</span><br></td>
+            <td class="tg-dzk6">show pet</td>
+            <td class="tg-dzk6">DONE</td>
+            <td class="tg-dzk6">X</td>
+            <td class="tg-dzk6">X</td>
+        </tr>
+        <tr>
+            <td class="tg-0lax"><span
+                    style="font-weight:normal;font-style:normal;text-decoration:none">/pets/{id}/owner</span></td>
+            <td class="tg-baqh">show / change pet owner</td>
+            <td class="tg-baqh">DONE</td>
+            <td class="tg-baqh">X</td>
+            <td class="tg-baqh">DONE</td>
+        </tr>
+        <tr>
+            <td class="tg-buh4">/appointments</td>
+            <td class="tg-dzk6">show / add appointments</td>
+            <td class="tg-dzk6">DONE</td>
+            <td class="tg-dzk6">DONE</td>
+            <td class="tg-dzk6">X</td>
+        </tr>
+        <tr>
+            <td class="tg-0lax"><span style="font-weight:normal;font-style:normal;text-decoration:none">/appointments?day={day}</span>
+            </td>
+            <td class="tg-baqh">show appointmens on given day</td>
+            <td class="tg-baqh">DONE</td>
+            <td class="tg-baqh">X</td>
+            <td class="tg-baqh">X</td>
+        </tr>
+        <tr>
+            <td class="tg-buh4"><span style="font-weight:normal;font-style:normal;text-decoration:none">/appointments/{id}</span>
+            </td>
+            <td class="tg-dzk6">show appointment / change appointment data</td>
+            <td class="tg-dzk6">DONE</td>
+            <td class="tg-dzk6">X</td>
+            <td class="tg-dzk6">DONE</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

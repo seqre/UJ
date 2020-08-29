@@ -1,0 +1,52 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.6.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'java'
+    id 'jacoco'
+    id "io.freefair.lombok" version "5.1.0"
+}
+
+group = 'uj.jwzp2020'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_11
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+}
+
+dependencies {
+//    Spring Boot
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+//    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+//    Database
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.12'
+
+//    Utils
+    implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.3.7'
+
+
+//    Testing
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.16.1'
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '3.3.3'
+    testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '3.3.3'
+}
+
+test {
+    useJUnitPlatform()
+    finalizedBy(jacocoTestReport, jacocoTestCoverageVerification)
+}

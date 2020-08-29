@@ -1,0 +1,22 @@
+- !!uj.jwzp2019.model.Person
+  birth_year: null
+  eye_color: null
+  gender: null
+  hair_color: null
+  height: 0
+  homeworld: http://fake.url/api/planets/1
+  mass: 0
+  name: Han Solo
+  planet: {climate: null, diameter: 0, name: Korelia, population: 0, terrain: null}
+  skin_color: null
+- !!uj.jwzp2019.model.Person
+  birth_year: null
+  eye_color: null
+  gender: null
+  hair_color: null
+  height: 0
+  homeworld: http://fake.url/api/planets/1
+  mass: 0
+  name: Leia
+  planet: null
+  skin_color: null

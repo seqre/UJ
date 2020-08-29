@@ -1,0 +1,4 @@
+Zaimplementuj obsługę 2 parametrów wejściowych w 4 implementacjach DI (manualna, Guice, Spring, Dagger).
+* pierwszy parametr to nazwa pliku, do którego ma być zapisany wynik wyszukiwań. Paramter ten należy przekształcić w pełnoprawny, wstrzykiwalny bean / component w danej technologii. Jest on typu String, więc należy go albo przekształcić w inny typ, albo zastosować kwalifikator. Gdy nie ma parametrów, plik należy nazwać `saved.xml` i zapisać w formacie XML.
+* drugi paramtetr oznacza docelowy format, w którym należy zapisać wyniki wyszukiwania. Możliwe wartości to: `xml`, `json`, `yml`. Domyślna wartość: `xml`. Każda z implementacji powinna być beanem/komponentem instancjonowanym tylko gdy zostanie użyty.
+* Nazwa pliku nie powinna być parametrem metody `save`, ale należy ją wstrzyknąć do konstruktora odpowiedniego saver'a. Proszę ususnąć parametr `fileName` z metody `save` interfejsu `MovieSaver`.

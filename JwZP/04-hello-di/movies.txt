@@ -1,0 +1,18 @@
+title,year,director
+Potop,1974,Hoffman
+Pan Wołodyjowski,1969,Hoffman
+Ogniem i mieczem,1999,Hoffman
+Pulp Fiction,1994,Tarantino
+Django,2012,Tarantino
+PitBull,2005,Vega
+Kobiety Mafii,2018,Vega
+Nowa Nadzieja,1977,Lucas
+Imperium Kontratakuje,1980,Kershner
+Powrót Jedi,1983,Marquand
+Mroczne Widmo,1999,Lucas
+Atak Klonow,2002,Lucas
+Zemsta Sithow,2005,Lucas
+Przebudzenie Mocy,2015,Abrams
+Ostatni Jedi,2017,Johnson
+Łotr 1,2016,Edwards
+Han Solo,2018,Howard

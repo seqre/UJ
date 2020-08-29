@@ -1,0 +1,30 @@
+image: gradle:6.2-jdk11
+
+stages:
+  - build
+  - test
+
+gradle-build:
+  stage: build
+  before_script:
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+  script:
+    - gradle clean fatJar -x test
+    - gradle fatJar -PbuildProfile=dev -x test
+    - gradle fatJar -PbuildProfile=prod -x test
+  artifacts:
+    paths:
+      - build/libs/gradle-play-default-all-1.0.jar
+      - build/libs/gradle-play-dev-all-1.0.jar
+      - build/libs/gradle-play-prod-all-1.0.jar
+  cache:
+    key: gradle-cache
+    paths:
+      - .gradle/caches
+
+acceptance:
+  stage: test
+  image: openjdk:11-jre-slim
+  script:
+    - src/test/acceptance/test01-fat-jar.sh
+    - src/test/acceptance/test02-profiles.sh

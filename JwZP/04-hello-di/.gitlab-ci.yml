@@ -1,0 +1,70 @@
+stages:
+  - build
+  - validate
+
+gradle-build:
+  image: gradle:6.2.0-jdk11
+  stage: build
+  before_script:
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+  script:
+    - gradle clean shadowJar -x test
+  artifacts:
+    paths:
+      - build/libs/*.jar
+  cache:
+    key: gradle-cache
+    paths:
+      - .gradle/caches
+
+manual-validate:
+  image: adoptopenjdk/openjdk11
+  stage: validate
+  before_script:
+    - apt-get update
+    - apt-get install -qq -y python3.6
+    - rm -rf /var/lib/apt/lists/*
+  script:
+    - python3.6 src/test/acceptance/acc01.py
+    - python3.6 src/test/acceptance/acc02.py
+    - python3.6 src/test/acceptance/acc03.py
+    - python3.6 src/test/acceptance/acc04.py
+
+spring-validate:
+  image: adoptopenjdk/openjdk11
+  stage: validate
+  before_script:
+    - apt-get update
+    - apt-get install -qq -y python3.6
+    - rm -rf /var/lib/apt/lists/*
+  script:
+    - python3.6 src/test/acceptance/acc05.py
+    - python3.6 src/test/acceptance/acc06.py
+    - python3.6 src/test/acceptance/acc07.py
+    - python3.6 src/test/acceptance/acc08.py
+
+guice-validate:
+  image: adoptopenjdk/openjdk11
+  stage: validate
+  before_script:
+    - apt-get update
+    - apt-get install -qq -y python3.6
+    - rm -rf /var/lib/apt/lists/*
+  script:
+    - python3.6 src/test/acceptance/acc09.py
+    - python3.6 src/test/acceptance/acc10.py
+    - python3.6 src/test/acceptance/acc11.py
+    - python3.6 src/test/acceptance/acc12.py
+
+dagger-validate:
+  image: adoptopenjdk/openjdk11
+  stage: validate
+  before_script:
+    - apt-get update
+    - apt-get install -qq -y python3.6
+    - rm -rf /var/lib/apt/lists/*
+  script:
+    - python3.6 src/test/acceptance/acc13.py
+    - python3.6 src/test/acceptance/acc14.py
+    - python3.6 src/test/acceptance/acc15.py
+    - python3.6 src/test/acceptance/acc16.py

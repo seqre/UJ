@@ -1,0 +1,26 @@
+stages:
+  - build
+  - test
+
+gradle-build:
+  image: gradle:5.1.0-jdk11
+  stage: build
+  before_script:
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+  script:
+    - gradle clean build -x test
+  artifacts:
+    paths:
+      - build/libs/*.jar
+  cache:
+    key: gradle-cache
+    paths:
+      - .gradle/caches
+
+test:
+  stage: test
+  image: gradle:5.1.0-jdk11
+  before_script:
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+  script:
+    - gradle test

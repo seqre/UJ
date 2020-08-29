@@ -1,0 +1,13 @@
+language: java
+os: linux
+dist: bionic
+jdk: oraclejdk11
+
+before_install:
+  - sudo apt-get update
+
+install:
+  - ./gradlew assemble
+
+script:
+  - ./gradlew check
