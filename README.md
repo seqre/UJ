@@ -8,3 +8,4 @@ Repos consisting various stuff done during my studies at The Jagiellonian Univer
   - (MN) Numerical Methods
   - (RPS) Probability and Statisstics
   - (JAVA) Programming in Java
+  - (PF) Functional Programming
